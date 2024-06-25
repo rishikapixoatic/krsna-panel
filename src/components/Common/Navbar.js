@@ -10,15 +10,15 @@ const Navbar = ({ toggleSidebar }) => {
   }, [accessToken]);
 
   return (
-    <nav className="bg-gray-800 p-2">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-gray-800 p-2 relative">
+      <div className=" px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 flex item-center">
               <button onClick={toggleSidebar} className="text-white">
-                <HiMenu className="h-6 w-6" />
+                <HiMenu className="h-7 w-7" />
               </button>
-              <Link to="/dashboard" className={`hidden lg:block text-white ml-4 ${accessToken ? '' : 'pointer-events-none opacity-50'}`}>
+              <Link to="/dashboard" className={`hidden lg:block text-white text-lg font-medium ml-4 ${accessToken ? '' : 'pointer-events-none'}`}>
                 Krsna
               </Link>
             </div>
@@ -28,11 +28,11 @@ const Navbar = ({ toggleSidebar }) => {
               {accessToken ? (
                 <>
                   <Link to="/dashboard" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
-                  <button onClick={logout} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
+                  <button onClick={logout} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Logout</button>
                 </>
               ) : (
                 <>
-                  <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</Link>
+                  <Link to="/" className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Login</Link>
                 </>
               )}
             </div>

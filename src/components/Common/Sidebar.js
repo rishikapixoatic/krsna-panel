@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
+import applogo  from '../../assests/applogo.png';
 import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
 
@@ -10,14 +11,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   }, [user]);
 
   return (
-    <div className={`bg-gray-800 text-white h-screen w-64 fixed top-0 left-0 overflow-y-auto ${isOpen ? 'block' : 'hidden'}`}>
-      <div className="p-4 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">Admin Panel</h1>
-        <button onClick={toggleSidebar} className="text-white focus:outline-none focus:text-white">
-          <HiX className="h-6 w-6" />
-        </button>
+    <div className={`bg-gray-800 text-white h-full w-56 top-0 left-0 overflow-y-auto ${isOpen ? 'block' : 'hidden'}`}>
+      <div className="p-4 flex justify-center bg-white items-center h-20">
+        <h1 className="text-xl text-black font-semibold">Krsna</h1>
       </div>
-      <nav className="px-4">
+      <nav className="px-5">
         <ul>
           <li className="mb-2">
             <Link to="/dashboard" className={`block py-2 px-4 hover:bg-gray-700`}>Dashboard</Link>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import userService from '../services/UserService';
-import Footer from '../components/Common/Footer';
 
 const UserPage = () => {
   const [users, setUsers] = useState([]);
@@ -27,10 +26,10 @@ const UserPage = () => {
   }, []);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-full bg-gray-100">
       <div className="flex-1 flex flex-col overflow-hidden">
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
-          <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-full py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-4">Registered Users</h2>
               <div className="overflow-x-auto">
@@ -70,7 +69,6 @@ const UserPage = () => {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
     </div>
   );

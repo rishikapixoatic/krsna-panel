@@ -30,14 +30,14 @@ const ImageUpload = ({ weddingId }) => {
         <div className="flex flex-col gap-y-4 items-center">
           <div>
             <label htmlFor="image" className="sr-only">Select Image</label>
-            <input id="image" name="image" type="file" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" onChange={handleImageChange} />
+            <input id="image" name="image" type="file" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm" onChange={handleImageChange} />
           </div>
         </div>
       </div>
       {successMessage && <p className="mt-2 text-sm text-green-600">{successMessage}</p>}
       {errorMessage && <p className="mt-2 text-sm text-red-600">{errorMessage}</p>}
       <div className="flex justify-center">
-        <button type="submit" className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <button type="submit" className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
           Upload Image
         </button>
       </div>
