@@ -34,19 +34,22 @@ const WeddingPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showBackButton, setShowBackButton] = useState(false);
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('hashTag', hashtag);
+    formData.append('password', password);
+    formData.append('thumbnail', thumbnail);
     try {
       if (currentStep === 1) {
         setCurrentStep(2);
         setShowBackButton(true);
-        await createHashtag(hashtag, password, thumbnail, accessToken);
+       
+        await createHashtag(formData, accessToken)
         setSuccessMessage('Wedding created successfully.');
       } else if (currentStep === 2) {
-        console.log("Creating folder:", newFolderName);
         const response = await createFolder(newFolderName, accessToken);
-        console.log("Folder creation response:", response);
         if (response.success) {
           setSuccessMessage('Folder created successfully.');
           setFolders([...folders, newFolderName]);
@@ -56,7 +59,6 @@ const WeddingPage = () => {
         }
     }    
     } catch (error) {
-      console.error("Error creating folder:", error);
       setErrorMessage('Failed to create folder. Please try again.');
     }
   };

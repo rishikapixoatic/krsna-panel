@@ -1,14 +1,13 @@
 const BASE_URL = 'https://api.krishnaphotography.net/v1';
 
-const createHashtag = async (hashtag, password, thumbnail, accessToken) => {
+const createHashtag = async (formData, accessToken) => {
   try {
     const response = await fetch(`${BASE_URL}/admin/createHashtag`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`
       },
-      body: JSON.stringify({hashtag, password, thumbnail }),
+      body: formData,
     });
 
     if (!response.ok) {

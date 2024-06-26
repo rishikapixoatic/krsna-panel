@@ -25,16 +25,12 @@ const Navbar = ({ toggleSidebar }) => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              {accessToken ? (
+              {accessToken && (
                 <>
                   <Link to="/dashboard" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
                   <button onClick={logout} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Logout</button>
                 </>
-              ) : (
-                <>
-                  <Link to="/" className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Login</Link>
-                </>
-              )}
+              ) }
             </div>
           </div>
         </div>
