@@ -25,11 +25,11 @@ const Layout = (props) => {
     return (
         <div className="flex h-screen">
             {accessToken && <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />}
-            <div className="flex-1 flex flex-col">
+            <div className="h-full w-full flex flex-col">
                 <Navbar toggleSidebar={toggleSidebar} />
-                <div className="flex-1 overflow-auto">
-                    <main>
-                        <Component/>
+                <div className="flex h-full w-full overflow-auto bg-gray-100">
+                    <main className='flex h-full w-full'>
+                        <Component />
                     </main>
                 </div>
                 <Footer />

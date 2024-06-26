@@ -79,7 +79,7 @@ const WeddingPage = () => {
   const steps = ['Step 1', 'Step 2', 'Step 3'];
 
   return (
-    <div className="flex h-full bg-gray-100">
+    <div className="flex h-full w-full bg-gray-100">
       <div className="flex-1 flex flex-col overflow-hidden">
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
           <div className="min-h-full pt-36 px-4 sm:px-6 lg:px-8">
