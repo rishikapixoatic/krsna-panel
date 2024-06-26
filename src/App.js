@@ -14,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/"  element={<Layout Component={LoginPage} />} />
+        {/* <Route path="/"  element={<LoginPage/>} /> */}
         <Route path="/dashboard" element={<Layout Component={DashboardPage} />} />
         <Route path="/users" element={<Layout Component={UserPage} />} />
         <Route path="/weddings" element={<Layout Component={WeddingPage} />} />

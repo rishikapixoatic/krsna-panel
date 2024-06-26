@@ -10,15 +10,30 @@ const createHashtag = async (formData, accessToken) => {
       body: formData,
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to create hashtag');
-    }
-
     const data = await response.json();
-    return { success: true, message: data.message };
+    return data;
   } catch (error) {
-    return { success: false, message: error.message };
+    console.log(error)
+    return error
   }
 };
 
-export { createHashtag };
+const uploadAssests = async (formData, accessToken) => {
+  try {
+    const response = await fetch(`${BASE_URL}/admin/uploadAssets`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+      body: formData,
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
+
+export { createHashtag, uploadAssests };

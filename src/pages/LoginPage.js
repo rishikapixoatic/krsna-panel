@@ -14,8 +14,9 @@ const LoginPage = () => {
     try {
       const response = await login(password);
       if (response.success) {
-        console.log("Login successful. User authenticated.");
-        navigate('./dashboard');
+        window.location.replace(window.location.origin + '/dashboard');
+
+        console.log("Login successful. User authenticated.", window.location.origin + '/dashboard');
       } else {
         setError('Invalid password. Please try again.');
       }

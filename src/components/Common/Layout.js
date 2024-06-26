@@ -15,12 +15,12 @@ const Layout = (props) => {
     };
 
     const navigate = useNavigate();
-    
+
     useEffect(() => {
-      if(!accessToken) {
-        navigate('/');
-      }
-    },)
+        if (!accessToken && window.location.pathname !== '/') {
+            navigate('/');
+        }
+    }, [accessToken, navigate]);
 
     return (
         <div className="flex h-screen">

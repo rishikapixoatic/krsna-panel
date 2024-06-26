@@ -1,14 +1,13 @@
 const BASE_URL = 'https://api.krishnaphotography.net/v1';
 
-const createFolder = async (weddingId, folderName, accessToken) => {
+const createFolder = async (formData, accessToken) => {
   try {
     const response = await fetch(`${BASE_URL}/admin/createFolder`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`
       },
-      body: JSON.stringify({ weddingId, folderName }),
+      body: formData,
     });
 
     if (!response.ok) {
