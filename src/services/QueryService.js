@@ -1,5 +1,7 @@
 import AWS from 'aws-sdk';
 
+const BASE_URL = 'https://api.krishnaphotography.net/v1';
+
 AWS.config.update({
   accessKeyId: 'YOUR_ACCESS_KEY_ID',
   secretAccessKey: 'YOUR_SECRET_ACCESS_KEY',
@@ -71,4 +73,38 @@ export const sendQuery = queryService.sendQuery;
 
 export const getQueries = queryService.getQueries;
 
+export const getUserQueries  = async (accessToken) => {
+  try {
+    const response = await fetch(`${BASE_URL}/admin/getContactUsMessage`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
+
+export const postUserQueriesReply  = async (res, accessToken) => {
+  try {
+    const response = await fetch(`${BASE_URL}/admin/replyContactUsMessage`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+      body: JSON.stringify(res),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
 export default queryService;
