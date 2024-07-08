@@ -13,8 +13,8 @@ const Table = ({columns, data} ) => {
     } = table;
   
     return (
-      <div className="container divide-y divide-gray-200 h-96 w-auto max-w-[700px] overflow-y-auto">
-        <table {...getTableProps()}>
+      <div className="container  h-96 w-auto min-w-[500px] overflow-x-auto max-w-[700px] overflow-y-auto">
+        <table {...getTableProps()} className="min-w-full divide-y divide-gray-200">
           <thead  className="bg-gray-50">
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>

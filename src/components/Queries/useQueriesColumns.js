@@ -18,9 +18,9 @@ const useQueriesColumns = ({ handleAction1Click, handleAction2Click }) => {
             accessor: "action",
             Cell: ({ row }) => {
                 return (
-                        <div className="flex justify-center items-center" onClick={(e) => handleAction1Click(e, row?.original?.messageId, row?.original)}>
-                            <img src={eyesolid} alt="action" className="h-4 w-4 mr-5" />
-                        </div>
+                    <div className="flex justify-center items-center" onClick={(e) => handleAction1Click(e, row?.original?.messageId, row?.original)}>
+                        <img src={eyesolid} alt="action" className="h-4 w-4 mr-5" />
+                    </div>
                 )
             }
         },
@@ -29,9 +29,9 @@ const useQueriesColumns = ({ handleAction1Click, handleAction2Click }) => {
             accessor: "action 2",
             Cell: ({ row }) => {
                 return (
-                        <div className="flex justify-center items-center" onClick={(e) => handleAction2Click(e, row?.original?.messageId, row?.original)}>
-                            <img src={replysolid} alt="action" className="h-4 w-4 mr-5" />
-                        </div>
+                    <div className="flex justify-center items-center" onClick={(e) => handleAction2Click(e, row?.original?.messageId, row?.original)}>
+                        <img src={replysolid} alt="action" className="h-4 w-4 mr-5" />
+                    </div>
                 )
             }
         }

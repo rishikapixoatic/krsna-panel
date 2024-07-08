@@ -4,7 +4,7 @@ import QueryDetail from '../components/Queries/QueryDetail';
 import { getUserQueries } from '../services/QueryService';
 import { useAuth } from '../contexts/AuthContext';
 
-const QueryPage = () => {
+const QueryPage = ({isSidebarOpen}) => {
   const [selectedQueryId, setSelectedQueryId] = useState(null);
   const [queryList, setQueryList] = useState();
   const { accessToken } = useAuth();
@@ -35,7 +35,7 @@ const QueryPage = () => {
               {selectedQueryId ? (
                 <QueryDetail queryId={selectedQueryId} onBack={handleBackToQueryList} />
               ) : (
-                <QueryList onQueryClick={handleQueryClick} queryList={queryList} accessToken={accessToken}/>
+                <QueryList onQueryClick={handleQueryClick} queryList={queryList} accessToken={accessToken} isSidebarOpen={isSidebarOpen}/>
               )}
             </div>
           </div>

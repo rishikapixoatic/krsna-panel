@@ -29,7 +29,7 @@ const Layout = (props) => {
                 <Navbar toggleSidebar={toggleSidebar} />
                 <div className="flex h-full w-full overflow-auto bg-gray-100">
                     <main className='flex h-full w-full'>
-                        <Component />
+                        <Component isSidebarOpen={isSidebarOpen}/>
                     </main>
                 </div>
                 <Footer />

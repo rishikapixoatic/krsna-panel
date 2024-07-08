@@ -6,7 +6,7 @@ import useQueriesColumns from './useQueriesColumns';
 import QueryDetail from './QueryDetail';
 import Table from '../Common/Table';
 
-const QueryList = ({ queryList, accessToken }) => {
+const QueryList = ({ queryList, accessToken, isSidebarOpen }) => {
   const [queries, setQueries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedQueryId, setSelectedQueryId] = useState(null);
@@ -120,7 +120,7 @@ const QueryList = ({ queryList, accessToken }) => {
             ))}
           </tbody>
         </table> */}
-        <div className='flex'>
+        <div className={`flex ${isSidebarOpen ? 'lg:flex-col md:flex-col xs:flex-col' : '' } lg:flex-row md:flex-col xs:flex-col`}>
           <Table columns={queryListColumns} data={queryList?.messages || []} />
           {selectedQueryMessageId && <div className='flex my-10 ml-12 bg-white h-56 w-72'>
             <div className='m-2'>

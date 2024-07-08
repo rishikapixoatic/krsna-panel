@@ -36,4 +36,41 @@ const uploadAssests = async (formData, accessToken) => {
   }
 };
 
-export { createHashtag, uploadAssests };
+
+const getAllHastag = async (accessToken) => {
+  try {
+    const response = await fetch(`${BASE_URL}/admin/getAllHashTags`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
+
+const deleteHastag = async (res, accessToken) => {
+  try {
+    const response = await fetch(`${BASE_URL}/admin/deleteHashtag`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+      },
+      body: JSON.stringify(res),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error)
+    return error
+  }
+};
+
+export { createHashtag, uploadAssests, getAllHastag, deleteHastag };

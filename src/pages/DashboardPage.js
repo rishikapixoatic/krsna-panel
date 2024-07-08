@@ -1,5 +1,9 @@
+import plusIcon from './../assests/plus-solid.svg';
+import { useNavigate } from 'react-router-dom';
+
 
 const DashboardPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex h-full bg-gray-100">
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -9,6 +13,7 @@ const DashboardPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
               <div className="bg-white rounded-md shadow-md p-6">
+                <div className="flex justify-end w-full ml-2" onClick={() => navigate('/weddings')}><img src={plusIcon} className='h-5 w-5' /></div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2">Wedding Statistics</h4>
                 <div className="flex items-center justify-between">
                   <div className="text-gray-600">Total Weddings</div>
@@ -21,6 +26,7 @@ const DashboardPage = () => {
               </div>
 
               <div className="bg-white rounded-md shadow-md p-6">
+                <div className="flex justify-end w-full ml-2" onClick={() => navigate('/users')}><img src={plusIcon} className='h-5 w-5' /></div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2">User Statistics</h4>
                 <div className="flex items-center justify-between">
                   <div className="text-gray-600">Total Users</div>

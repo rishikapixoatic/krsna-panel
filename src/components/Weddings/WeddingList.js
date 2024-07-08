@@ -1,13 +1,30 @@
-import React from 'react';
-import WeddingDetail from './WeddingDetail';
+import React, { useEffect, useState } from 'react';
+import { getAllHastag, deleteHastag } from './../../services/WeddingService';
+import useWeddingListColumns from './useWeddingListColumns';
+import Table from '../Common/Table';
 
-const WeddingList = ({ weddings }) => {
+const WeddingList = ({ accessToken }) => {
+  const [hastags, setHastags] = useState();
+
+  const getAllHastags = async () => {
+    const response = await getAllHastag(accessToken);
+    console.log("response..", response);
+    setHastags(response.data.hashTags);
+  }
+  const handleDeleteAction = async(e, name) => {
+   console.log("id", name)
+   const response = deleteHastag({hashTag: name}, accessToken);
+  }
+  const weddingListCols = useWeddingListColumns({handleDeleteAction});
+
+  useEffect(() => {
+    getAllHastags();
+  }, [])
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {weddings.map(wedding => (
-        <WeddingDetail key={wedding.id} wedding={wedding} />
-      ))}
-    </div>
+    <>
+     {hastags?.length > 0 && <Table columns={weddingListCols} data={hastags}/>}
+    </>
   );
 };
 

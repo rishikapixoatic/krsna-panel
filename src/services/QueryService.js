@@ -95,6 +95,7 @@ export const postUserQueriesReply  = async (res, accessToken) => {
     const response = await fetch(`${BASE_URL}/admin/replyContactUsMessage`, {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`
       },
       body: JSON.stringify(res),
